@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	arr := [10]int{1, 2, 3, 4, 5, 10, 8, 18, 7, 6}
+	arr := []int{1, 2, 3, 4, 5, 10, 8, 18, 7, 6}
 	sum := 10
 	fmt.Printf("Finding the pair of sum %d in the array: %d\n", sum, arr)
 

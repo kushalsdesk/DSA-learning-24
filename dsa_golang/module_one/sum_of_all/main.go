@@ -7,7 +7,7 @@ import (
 func main() {
 	fmt.Println("Sum of all Elements")
 
-	arr := [5]int{1, 2, 3, 1, 1}
+	arr := []int{1, 2, 3, 1, 1}
 
 	var sum int = 0
 	for _, v := range arr {
