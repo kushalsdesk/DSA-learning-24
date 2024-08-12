@@ -16,6 +16,7 @@ func main() {
 		{1, 2, 3},
 	}
 
+	// making slice for storing the addition of same size as one of the matrices
 	mat_total := make([][]int, len(mat_one))
 	for i := range mat_total {
 		mat_total[i] = make([]int, len(mat_one[i]))
