@@ -3,12 +3,13 @@ package main
 import (
 	"dsa_golang/utils"
 	"fmt"
+	"strconv"
 )
 
-var choice int
+var input string
 
 func main() {
-	stack := utils.Stack{}
+	stack := utils.New()
 	fmt.Println("Welcome to Stack Operations")
 	for {
 		fmt.Println("\nStack Operations Menu:")
@@ -21,29 +22,34 @@ func main() {
 		fmt.Printf("Choose an option: ")
 		fmt.Println()
 
-		fmt.Scan(&choice)
-
+		fmt.Scanln(&input)
+		// Try to convert the input to an integer
+		choice, err := strconv.Atoi(input)
+		if err != nil {
+			fmt.Println("Invalid input. Please enter a number between 1 and 6.")
+			continue // Skip to the next iteration of the loop
+		}
 		switch choice {
 		case 1:
-			var value int
-			fmt.Println("Enter the Value to push : ")
+			var value string
+			fmt.Println("Enter the Value to push(any type) : ")
 			fmt.Scan(&value)
 			stack.Push(value)
-			fmt.Printf("%d Pushed \n", value)
+			fmt.Printf("%v Pushed \n", value)
 		case 2:
 			fmt.Println("Popping Element")
-			popped := stack.Pop()
-			if popped != -1 {
+			popped, empty := stack.Pop()
+			if !empty {
 
-				fmt.Printf("%d popped\n", popped)
+				fmt.Printf("%v popped\n", popped)
 			} else {
 				fmt.Println("Stack Empty")
 			}
 		case 3:
 			fmt.Println("Peeking to stack")
-			peek := stack.Peek()
-			if peek != -1 {
-				fmt.Printf("%d is topmost\n", peek)
+			peek, empty := stack.Peek()
+			if !empty {
+				fmt.Printf("%v is topmost\n", peek)
 			} else {
 				fmt.Println("Stack already empty")
 			}
