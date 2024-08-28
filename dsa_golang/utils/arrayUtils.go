@@ -4,6 +4,7 @@ import "fmt"
 
 var arrSize int
 
+// ProvideArray() creates array based on user-given data
 func ProvideArray() []int {
 	counter := 0
 	fmt.Println("Enter the size of the array: ")
