@@ -32,6 +32,33 @@ func InsertLast(head **Node, value interface{}) {
 	current.Next = newNode // Append the new node at the end
 }
 
+func InsertAt(head **Node, pos int, value interface{}) {
+	fmt.Printf("Inserting at %v\n", pos)
+	if pos == 1 {
+		InsertFirst(head, value)
+		return
+	}
+	if *head == nil {
+		fmt.Println("The list is empty")
+		return
+	}
+	current := *head
+	newNode := &Node{Value: value}
+	loop := 1
+
+	for loop < pos-1 && current.Next != nil {
+		current = current.Next
+		loop++
+	}
+
+	if loop == pos-1 {
+		newNode.Next = current.Next
+		current.Next = newNode
+	} else {
+		fmt.Println("Position out of bounds")
+	}
+}
+
 func PrintList(head **Node) {
 	if *head == nil {
 		fmt.Println("The list is already empty")
