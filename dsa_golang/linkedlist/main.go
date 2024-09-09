@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("Working with Different Operations with LinkedList")
 	ll := utils.Newlist()
 	for true {
-		fmt.Println(" 1.Insert@First,\n 2.Insert@Last,\n 3.Insert@n,\n 4.PrintList,\n 5.Exit")
+		fmt.Println(" 1.Insert@First,\n 2.Insert@Last,\n 3.Insert@n,\n 4.Remove@n,\n 5.PrintList,\n 0.Exit")
 		fmt.Println("Enter Option:")
 		fmt.Scan(&choice)
 		var item string
@@ -32,8 +32,14 @@ func main() {
 			fmt.Scan(&item)
 			utils.InsertAt(&ll, pos, item)
 		case 4:
-			utils.PrintList(&ll)
+			var pos int
+			fmt.Println("Enter the Position: ")
+			fmt.Scan(&pos)
+			fmt.Printf("Removing Node at %d\n", pos)
+			utils.RemoveAT(&ll, pos)
 		case 5:
+			utils.PrintList(&ll)
+		case 0:
 			return
 		default:
 			fmt.Println("Enter Valid Option....")

@@ -58,6 +58,28 @@ func InsertAt(head **Node, pos int, value interface{}) {
 		fmt.Println("Position out of bounds")
 	}
 }
+func RemoveAT(head **Node, pos int) {
+	if *head == nil {
+		fmt.Println("Already empty")
+		return
+	}
+	if pos == 1 {
+		*head = (*head).Next
+		return
+	}
+	current := *head
+	loop := 1
+	for loop < pos-1 && current.Next != nil {
+		current = current.Next
+		loop++
+	}
+
+	if current.Next != nil {
+		current.Next = current.Next.Next
+	} else {
+		fmt.Println("Index Out of bounds")
+	}
+}
 
 func PrintList(head **Node) {
 	if *head == nil {
